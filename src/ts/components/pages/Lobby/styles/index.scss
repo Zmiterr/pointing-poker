@@ -1,0 +1,31 @@
+.lobby {
+  padding: 30px 0 30px 0;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+
+    &-title {
+      font-family: 'Ruda' sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 15px;
+    }
+
+    &-search {
+      width: 465px;
+    }
+
+    &-buttons {
+      display: flex;
+      align-items: center;
+      margin: 30px 0 30px 0;
+    }
+
+    &-button {
+      margin-right: 30px;
+    }
+  }
+}

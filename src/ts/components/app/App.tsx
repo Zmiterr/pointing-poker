@@ -1,15 +1,51 @@
+/* eslint-disable react/jsx-max-props-per-line */
 import React from 'react';
-import { Button } from 'antd';
+import { ReactSVG } from 'react-svg';
 
-import 'antd/dist/antd.css';
+import PagewWrapper from '../pages/PageWrapper/PageWrapper';
+import LobbyPage from '../pages/Lobby/Lobby';
+
+import LogoIcon from '../../../assets/icons/logo.svg';
 import './index.scss';
 
-function App(): JSX.Element {
+const title = 'Spring 23 planning';
+const user = {
+  id: 1,
+  name: 'David Blane',
+  position: 'Developer',
+  avatar: '',
+  isMaster: true,
+};
+const members = [
+  {
+    id: 1,
+    name: 'David Blane',
+    position: 'Developer',
+    avatar: '',
+    isMaster: true,
+  },
+];
+const issues = [
+  {
+    name: 'Issue 542',
+    priority: 'Low Priority',
+  },
+];
+
+const App: React.FC = (): JSX.Element => {
   return (
     <div className="app">
-      <Button type="primary">Create awesome app!</Button>
+      <div className="app__header">
+        <div className="app__header-top" />
+        <div className="app__header-bottom" />
+        <ReactSVG className="app__header-logo" src={(LogoIcon || '').replace(/^\.\//, '/')} />
+      </div>
+      <PagewWrapper>
+        <LobbyPage currentUser={user} title={title} members={members} issues={issues} />
+      </PagewWrapper>
+      <div className="app__footer" />
     </div>
   );
-}
+};
 
 export default App;
