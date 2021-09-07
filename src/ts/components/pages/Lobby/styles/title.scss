@@ -1,0 +1,21 @@
+.title {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-family: 'Ruda' sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    margin-right: 20px;
+  }
+
+  &__edit-icon {
+    cursor: pointer;
+  }
+}
