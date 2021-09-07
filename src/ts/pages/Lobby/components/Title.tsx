@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 
-import EditIcon from '../../../../../assets/icons/edit.svg';
+import EditIcon from '../../../../assets/icons/edit.svg';
 import '../styles/title.scss';
 
 interface ITitleProps {

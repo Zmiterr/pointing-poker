@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Input } from 'antd';
 
-import type { IMember } from '../../../interfaces/IMember';
-import type { IIssue } from '../../../interfaces/IIssue';
+import type { IMember } from '../../interfaces/IMember';
+import type { IIssue } from '../../interfaces/IIssue';
 
 import Title from './components/Title';
 import MemberCard from './components/MemberCard';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 
-import type { IIssue } from '../../../../interfaces/IIssue';
+import type { IIssue } from '../../../interfaces/IIssue';
 
-import EditIcon from '../../../../../assets/icons/edit.svg';
-import DeleteIcon from '../../../../../assets/icons/delete.svg';
-import AddIcon from '../../../../../assets/icons/add.svg';
+import EditIcon from '../../../../assets/icons/edit.svg';
+import DeleteIcon from '../../../../assets/icons/delete.svg';
+import AddIcon from '../../../../assets/icons/add.svg';
 import '../styles/issue-card.scss';
 
 interface IIssueCardProps {

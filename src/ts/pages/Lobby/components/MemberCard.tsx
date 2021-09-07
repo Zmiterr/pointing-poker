@@ -2,8 +2,8 @@ import React from 'react';
 import { ReactSVG } from 'react-svg';
 import { Avatar } from 'antd';
 
-import type { IMember } from '../../../../interfaces/IMember';
-import CloseIcon from '../../../../../assets/icons/close.svg';
+import type { IMember } from '../../../interfaces/IMember';
+import CloseIcon from '../../../../assets/icons/close.svg';
 import '../styles/member-card.scss';
 
 interface IMemberCardProps {

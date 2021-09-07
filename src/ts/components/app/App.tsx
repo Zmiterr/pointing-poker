@@ -2,8 +2,8 @@
 import React from 'react';
 import { ReactSVG } from 'react-svg';
 
-import PagewWrapper from '../pages/PageWrapper/PageWrapper';
-import LobbyPage from '../pages/Lobby/Lobby';
+import PagewWrapper from '../../pages/PageWrapper';
+import LobbyPage from '../../pages/Lobby/Lobby';
 
 import LogoIcon from '../../../assets/icons/logo.svg';
 import './index.scss';
