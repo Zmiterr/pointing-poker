@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+
+.authorization-modal-wrapper {
+ background-color: rgba(0, 0, 0, 0.5);
+position: fixed;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+
+ &_form {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: .5rem;
+  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  width: 450px;
+  font-size: 1.8rem;
+}
+}
+
+h3 {
+ color: #fff;
+ font-size: 2.5rem;
+ line-height: 1rem;
+ font-weight: 300;
+ margin: 5px 0 10px;
+}
+
+.message {
+ color: #fff;
+ font-size: 1rem;
+ font-weight: 500;
+ margin: 0 0 36px;
+ text-align: center;
+}
+
+// .desktop-modal-container {
+//  border-radius: 7px;
+//  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
+//  padding: 40px;
+//  width: 450px;
+//  position: relative;
+//  font-size: 26px;
+// }
