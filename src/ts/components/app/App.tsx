@@ -1,27 +1,77 @@
+import { Form, Input, Button } from 'antd';
 import React, { useState } from 'react';
-import AuthorizationModals, { AuthorizationFunction } from './AuthorizationModal';
+import RWDModal from './RWDModal';
 import './index.scss';
+import ImageUpload from './avatarUploader';
+import gameLogo from './logo.jpg';
+import Demo from './gameByURL';
 
 function App(): JSX.Element {
   const [authorizationModal, setAuthorizationModal] = useState(false);
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
 
   const toogleAuthorizationModal = () => {
     setAuthorizationModal((authorizatonModalVisible) => !authorizatonModalVisible);
   };
 
-  const onAuthorizationRequest: AuthorizationFunction = async ({ firstName }) => {
-    console.log(firstName);
-  };
   return (
     <div className="app">
-      <button type="button" onClick={toogleAuthorizationModal}>
-        Start Game
-      </button>
-      <AuthorizationModals
-        firstNameError={authorizationModal}
+      <img alt="" src={gameLogo} />
+      <h3 className="start-planning">Start your planning</h3>
+      <div className="text-button-group">
+        <span className="new-game-text">Create new session:</span>
+        <button className="button-modal" type="button" onClick={toogleAuthorizationModal}>
+          Start New Game
+        </button>
+        <p className="or">OR</p>
+        <div className="text-button-group">
+          <span>Connect to lobby by URL:</span>
+          <Demo />
+        </div>
+      </div>
+      <RWDModal
+        content={
+          <>
+            <Form
+              name="basic"
+              labelCol={{ span: 8 }}
+              wrapperCol={{ span: 16 }}
+              initialValues={{ remember: true }}
+              autoComplete="off"
+              className="modal-styles"
+              onClick={(e) => e.stopPropagation()}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+            >
+              <Form.Item
+                label="Firstname"
+                name="firstname"
+                rules={[{ required: true, message: 'Please input your username!' }]}
+              >
+                <Input className="modal-input" />
+              </Form.Item>
+              <Form.Item label="Surname" name="surname">
+                <Input className="modal-input" />
+              </Form.Item>
+              <Form.Item id="mainApp">
+                <ImageUpload />
+              </Form.Item>
+              <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+                <Button type="primary" htmlType="submit">
+                  Submit
+                </Button>
+              </Form.Item>
+            </Form>
+          </>
+        }
         isAuthorizationModalVisible={authorizationModal}
         onBackDropClick={toogleAuthorizationModal}
-        onAuthorizationRequested={onAuthorizationRequest}
       />
     </div>
   );

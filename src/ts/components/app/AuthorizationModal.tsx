@@ -28,18 +28,19 @@ const AuthorizationModals: FC<IAuthorizationModalProps> = ({
   return (
     <RWDModal
       isAuthorizationModalVisible={isAuthorizationModalVisible}
-      message="please log in"
-      content={
-        <>
-          <input />
-          <input />
-          <input />
-          <button type="submit">Confirm</button>
-          <button type="button">Cancel</button>
-        </>
-      }
+      // message="please log in"
+      // content={
+      //   <>
+      //     <input />
+      //     <input />
+      //     <input />
+      //     <button type="submit">Confirm</button>
+      //     <button type="button">Cancel</button>
+      //   </>
+      // }
       firstNameError={firstNameError}
       onBackDropClick={onBackDropClick}
+      // onAuthorizationRequested={AuthorizationFunction}
     />
   );
 };

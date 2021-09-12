@@ -13,6 +13,7 @@ const RWDModal: FC<RWDModalProps> = (props) => {
           <AuthorizationModalWrapper
             CloseButtonComponent={DesktopCloseButton}
             ContainerComponent={DesktopModalContainer}
+            // firstNameError={firstNameError}
             // eslint-disable-next-line react/jsx-props-no-spreading
             {...props}
           />

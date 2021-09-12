@@ -13,7 +13,8 @@ export const Overlay = styled.div`
 `;
 
 export const Form = styled.div`
-  background-color: #000;
+  background-color: #2b3a67;
+  font-weight: 700;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,7 +27,7 @@ export const Form = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  background-color: black;
+  background-color: #2b3a67;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +76,12 @@ export const CloseSign = styled.div`
   }
 `;
 
+export const Error = styled.div`
+  padding: 1rem 0;
+  font-size: 0.85rem;
+  color: #ff0;
+`;
+
 export const CloseButton = styled.div`
   position: absolute;
   width: 2.5rem;
@@ -93,6 +100,6 @@ export const CloseButton = styled.div`
 `;
 
 export const DesktopCloseButton = styled(CloseButton)`
-  top: -3.25rem;
+  top: -1.25rem;
   left: calc(100% - 1.25rem);
 `;

@@ -5,6 +5,7 @@ import AuthorizationModal from './Modal';
 
 export interface IAuthorizationWrapperProps {
   isAuthorizationModalVisible?: boolean;
+  firstNameError?: string;
   onBackDropClick?: () => void;
   message?: string;
   content?: ReactNode;
@@ -32,6 +33,8 @@ const AuthorizationModalWrapper: FC<Props> = ({
   CloseButtonComponent,
   // eslint-disable-next-line react/prop-types
   content,
+  // eslint-disable-next-line react/prop-types
+  firstNameError,
 }) => {
   if (!isAuthorizationModalVisible) return null;
   return (
@@ -42,6 +45,7 @@ const AuthorizationModalWrapper: FC<Props> = ({
         </CloseButtonComponent>
         {message && <Message>{message}</Message>}
         {content}
+        {firstNameError}
       </ContainerComponent>
     </AuthorizationModal>
   );
