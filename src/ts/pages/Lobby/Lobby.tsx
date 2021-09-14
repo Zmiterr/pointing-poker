@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Input } from 'antd';
 
 import type { IMember } from '../../interfaces/IMember';
@@ -8,6 +8,7 @@ import Title from './components/Title';
 import MemberCard from './components/MemberCard';
 import IssueCard from './components/IssueCard';
 import Settings from './components/Settings';
+import { AddCard, Card, CoffeBreakCard } from './components/Card';
 
 import 'antd/dist/antd.css';
 import './styles/index.scss';
@@ -22,6 +23,10 @@ interface ILobbyPageProps {
 const LobbyPage: React.FC<ILobbyPageProps> = (props: ILobbyPageProps): JSX.Element => {
   const { currentUser, title, members, issues } = props;
   const { Search } = Input;
+
+  const [addedCards, setAddedCards] = useState<any[]>([]);
+  const [selectedCards, setSelectedCards] = useState<any[]>([]);
+
   return (
     <section className="lobby">
       <Title title={title} editable />
@@ -50,7 +55,7 @@ const LobbyPage: React.FC<ILobbyPageProps> = (props: ILobbyPageProps): JSX.Eleme
 
       <div className="lobby__section">
         <Title title="Members:" />
-        <div className="lobby__section-wrapper">
+        <div className="lobby__section-wrapper members">
           {members?.map((member: IMember) => (
             <MemberCard key={member?.id} member={member} />
           ))}
@@ -59,7 +64,7 @@ const LobbyPage: React.FC<ILobbyPageProps> = (props: ILobbyPageProps): JSX.Eleme
 
       <div className="lobby__section">
         <Title title="Issues:" />
-        <div className="lobby__section-wrapper">
+        <div className="lobby__section-wrapper issue-cards">
           {issues?.map((issue: IIssue) => (
             <IssueCard key={issue?.name} issue={issue} />
           ))}
@@ -74,6 +79,26 @@ const LobbyPage: React.FC<ILobbyPageProps> = (props: ILobbyPageProps): JSX.Eleme
 
       <div className="lobby__section">
         <Title title="Add card values:" />
+        <div className="lobby__section-wrapper cards">
+          <CoffeBreakCard />
+          {addedCards.map((card: any) => (
+            <Card
+              key={Math.random()}
+              type="SP"
+              score={card.value}
+              isSelected={card.isSelected}
+              onSelected={(scoreValue: number, type = 'SP') => {
+                setSelectedCards([...selectedCards, { value: scoreValue, type, isSelected: true }]);
+              }}
+            />
+          ))}
+          <AddCard
+            score={0}
+            onAdded={(scoreValue: number, type = 'SP') => {
+              setAddedCards([...addedCards, { value: scoreValue, type, isSelected: false }]);
+            }}
+          />
+        </div>
       </div>
     </section>
   );
