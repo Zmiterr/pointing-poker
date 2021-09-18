@@ -12,7 +12,7 @@ align-items: center;
 justify-content: center;
 
  &_form {
-  background-color: #000;
+  background-color: #2b3a67;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,11 +41,45 @@ h3 {
  text-align: center;
 }
 
-// .desktop-modal-container {
-//  border-radius: 7px;
-//  box-shadow: 0 0 32px rgba(0, 0, 0, 0.5);
-//  padding: 40px;
-//  width: 450px;
-//  position: relative;
-//  font-size: 26px;
-// }
+.closeButton {
+ position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #c8c8c8;
+  border-radius: 50%;
+  cursor: pointer;
+  top: -1rem;
+  right: -1rem;
+
+  & > * {
+    opacity: 1;
+  }
+
+  &:hover > * {
+    opacity: 0.6;
+  }
+}
+
+.closeSign {
+ top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #323232;
+  &:before,
+  &:after {
+    position: absolute;
+    left: 19px;
+    top: 10px;
+    content: ' ';
+    height: 20px;
+    width: 4px;
+    background-color: #333;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+ }

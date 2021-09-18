@@ -1,48 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import RWDModal from './RWDModal';
 
-interface IAuthorizationArgs {
-  firstName: string;
-  lastName: string;
-  jobPosition: string;
-}
-
-export type AuthorizationFunction = (args: IAuthorizationArgs) => Promise<void>;
-
 interface IAuthorizationModalProps {
-  onBackDropClick?: () => void;
+  onBackDropClick: () => void;
   isAuthorizationModalVisible: boolean;
-  firstNameError?: string;
-  onAuthorizationRequested?: AuthorizationFunction; // Каким образом будет произведена валидация
+  content: ReactNode;
 }
 
-const AuthorizationModals: FC<IAuthorizationModalProps> = ({
-  // eslint-disable-next-line react/prop-types
-  onBackDropClick,
-  // eslint-disable-next-line react/prop-types
-  isAuthorizationModalVisible,
-  // eslint-disable-next-line react/prop-types
-  firstNameError,
-  // onAuthorizationRequested,
-}) => {
-  return (
-    <RWDModal
-      isAuthorizationModalVisible={isAuthorizationModalVisible}
-      // message="please log in"
-      // content={
-      //   <>
-      //     <input />
-      //     <input />
-      //     <input />
-      //     <button type="submit">Confirm</button>
-      //     <button type="button">Cancel</button>
-      //   </>
-      // }
-      firstNameError={firstNameError}
-      onBackDropClick={onBackDropClick}
-      // onAuthorizationRequested={AuthorizationFunction}
-    />
-  );
+// eslint-disable-next-line react/prop-types
+const AuthorizationModals: FC<IAuthorizationModalProps> = ({ onBackDropClick, content }) => {
+  return <RWDModal content={content} onBackDropClick={onBackDropClick} />;
 };
 
 export default AuthorizationModals;

@@ -1,28 +1,14 @@
-import React, { FC } from 'react';
-import MediaQuery from 'react-responsive';
-import { DesktopCloseButton, DesktopModalContainer } from './AuthorizationModalPopUp.styled';
-import AuthorizationModalWrapper, { IAuthorizationWrapperProps } from './AuthorizationModalWrapper';
+import React, { FC, ReactNode } from 'react';
+import AuthorizationModalWrapper from './AuthorizationModalWrapper';
 
-type RWDModalProps = IAuthorizationWrapperProps;
+export interface IProps {
+  isAuthorizationModalVisible?: boolean;
+  onBackDropClick: () => void;
+  content: ReactNode;
+}
 
-const RWDModal: FC<RWDModalProps> = (props) => {
-  return (
-    <MediaQuery minWidth={580}>
-      {(matches: any) =>
-        matches ? (
-          <AuthorizationModalWrapper
-            CloseButtonComponent={DesktopCloseButton}
-            ContainerComponent={DesktopModalContainer}
-            // firstNameError={firstNameError}
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
-          />
-        ) : (
-          <div>SFFH</div>
-        )
-      }
-    </MediaQuery>
-  );
+const RWDModal: FC<IProps> = (props) => {
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <AuthorizationModalWrapper {...props} />;
 };
-
 export default RWDModal;

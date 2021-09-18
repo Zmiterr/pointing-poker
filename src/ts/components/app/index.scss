@@ -67,6 +67,18 @@
 
  .ant-form-item-explain-error {
   color: red;
+  font-size: 23px;
+  text-align: center;
+  margin: 10px 0;
+
+  &::after {
+   display: none;
+  }
+ }
+
+ .ant-btn {
+  padding: 10px;
+  line-height: 2;
  }
 
  .ant-btn-primary {
@@ -80,4 +92,43 @@
 
  .ant-input {
   padding: 0.5rem;
+  width: 25rem;
  }
+
+ .ant-upload-list-item-image {
+  clip-path: circle(60px at center);
+ }
+
+ .ant-upload-list-item-name {
+  display: none;
+ }
+
+ .ant-upload-list-item-card-actions-btn {
+  border-radius: 50%;
+  position: relative;
+  bottom: 91px;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+ }
+
+ .ant-tooltip-inner {
+  display: none;
+ }
+
+ .anticon-delete {
+  position: relative;
+  bottom: 16px;
+  right: 2px;
+ }
+
+ .ant-avatar-btn {
+  margin: 1rem 0;
+ }
+
+ .ant-checkbox-input {
+  width: 22px;
+  height: 22px;
+  border-radius: 49%;
+  margin: 10px !important;
+}
