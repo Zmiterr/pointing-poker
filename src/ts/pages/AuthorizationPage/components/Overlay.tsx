@@ -5,9 +5,9 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
 import AvatarUploader from './AvatarUpload';
-import '../../../styles/modalPopUp.scss';
+import '../styles/modalPopUp.scss';
 
-export interface IPro {
+export interface IOverlayProps {
   isOpened: boolean;
   updateModal: () => void;
 }

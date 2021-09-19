@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Form, Input, Button, Space } from 'antd';
-import './index.scss';
+import '../styles/index.scss';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Demo: FC = () => {

@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import RWDModal from './RWDModal';
+import RWDModal from './components/RWDModal';
 import '../../../styles/index.scss';
-import gameLogo from './logo.jpg';
-import Demo from './gameByURL';
-import Overlay from './Overlay';
+import gameLogo from '../../../assets/icons/logo.jpg';
+import Demo from './components/gameByURL';
+import Overlay from './components/Overlay';
 
 const Main: FC = () => {
   const [authorizationModal, setAuthorizationModal] = useState(false);

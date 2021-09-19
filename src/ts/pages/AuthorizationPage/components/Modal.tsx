@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
 import Overlay from './Overlay';
-import '../../../styles/modalPopUp.scss';
+import '../styles/modalPopUp.scss';
 
 interface IModalProp {
   onBackDropClick: () => void;
