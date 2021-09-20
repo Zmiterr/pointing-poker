@@ -7,3 +7,4 @@
 **/.eslintrc
 **/tsconfig.json
 **/postcss.config.js
+**/src/ts/store/modules
