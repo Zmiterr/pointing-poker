@@ -23,6 +23,7 @@
     "js:check": "npx eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "js:fix": "npx eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix"
   },
+  "proxy": "http://34.77.110.165:5000",
   "pre-commit": [
     "format",
     "js:check"
