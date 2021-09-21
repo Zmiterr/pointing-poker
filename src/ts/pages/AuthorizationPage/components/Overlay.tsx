@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { FC, useState } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
+import axios from 'axios';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
 import AvatarUploader from './AvatarUpload';
@@ -15,6 +16,7 @@ export interface IOverlayProps {
 // eslint-disable-next-line react/prop-types
 const Overlay: FC = () => {
   const [isOpened, setIsOpened] = useState<boolean>(true);
+  const [isLoading, setLoading] = useState(false);
   const onFinish = (values: any) => {
     // eslint-disable-next-line no-console
     console.log('Success:', values);
@@ -24,6 +26,15 @@ const Overlay: FC = () => {
     // eslint-disable-next-line no-console
     console.log('Failed:', errorInfo);
   };
+  // const onEnter = async () => {
+  //   await axios.post('/rooms', {
+  //     roomId,
+  //     name,
+  //     jobPosition,
+  //     image,
+  //     isObserver,
+  //   });
+  // };
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   const wrapper = (
     <div className="authorization-modal-wrapper">
@@ -45,12 +56,13 @@ const Overlay: FC = () => {
           <Form.Item
             label="Firstname"
             name="firstname"
+            // value={firstName}
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
             <Input className="modal-input" />
           </Form.Item>
           <Form.Item label="Surname" name="surname">
-            <Input className="modal-input" />
+            <Input className="modal-input" value="lastName" />
           </Form.Item>
           <Form.Item label="Job position" name="job position">
             <Input className="modal-input" />
@@ -59,7 +71,7 @@ const Overlay: FC = () => {
             <AvatarUploader />
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" disabled={isLoading}>
               Submit
             </Button>
           </Form.Item>
