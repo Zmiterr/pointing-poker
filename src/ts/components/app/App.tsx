@@ -25,12 +25,6 @@ const members = [
     isMaster: true,
   },
 ];
-const issues = [
-  {
-    name: 'Issue 542',
-    priority: 'Low Priority',
-  },
-];
 
 const App: React.FC = (): JSX.Element => {
   return (
@@ -41,7 +35,7 @@ const App: React.FC = (): JSX.Element => {
         <ReactSVG className="app__header-logo" src={(LogoIcon || '').replace(/^\.\//, '/')} />
       </div>
       <PagewWrapper>
-        <LobbyPage currentUser={user} title={title} members={members} issues={issues} />
+        <LobbyPage currentUser={user} title={title} members={members} />
       </PagewWrapper>
       <div className="app__footer" />
     </div>

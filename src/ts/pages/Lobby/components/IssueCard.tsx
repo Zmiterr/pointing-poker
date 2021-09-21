@@ -11,11 +11,12 @@ import '../styles/issue-card.scss';
 interface IIssueCardProps {
   issue?: IIssue;
   title?: string;
+  onRemovedIssue?: (id: number) => void;
 }
 
 const IssueCard: React.FC<IIssueCardProps> = (props: IIssueCardProps): JSX.Element | null => {
-  const { issue, title } = props;
-  const { name, priority } = issue || {};
+  const { issue, title, onRemovedIssue } = props;
+  const { id, name, priority } = issue || {};
 
   return (
     <div className="lobby__issue-card">
@@ -40,6 +41,9 @@ const IssueCard: React.FC<IIssueCardProps> = (props: IIssueCardProps): JSX.Eleme
               svg.setAttribute('style', 'width: 24px');
               svg.setAttribute('style', 'height: 24px');
             }}
+            onClick={() => {
+              if (onRemovedIssue) onRemovedIssue(id || 0);
+            }}
           />
         </div>
       ) : (
@@ -58,10 +62,12 @@ const IssueCard: React.FC<IIssueCardProps> = (props: IIssueCardProps): JSX.Eleme
 
 IssueCard.defaultProps = {
   issue: {
+    id: 0,
     name: '',
     priority: '',
   },
   title: 'Issue',
+  onRemovedIssue: () => {},
 };
 
 export default IssueCard;

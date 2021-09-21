@@ -25,7 +25,9 @@
     }
   },
   "rules": {
+    "@typescript-eslint/no-implied-eval": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "no-underscore-dangle": "off",
     "@typescript-eslint/no-var-requires": 0,
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": false, "peerDependencies": false}],
     "linebreak-style": ["error", "unix"],
