@@ -1,0 +1,21 @@
+.lobby {
+  &__settings {
+    &-item-line {
+      display: grid;
+      grid-template-areas: 'title value';
+      grid-template-columns: 300px 1fr;
+      margin: 0 0 27px 0;
+    }
+
+    &-item-line-title {
+      font-family: 'Ruda', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    &-item-line-value {
+      width: 250px;
+    }
+  }
+}

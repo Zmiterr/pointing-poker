@@ -23,6 +23,7 @@
     "js:check": "npx eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "js:fix": "npx eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix"
   },
+  "proxy": "http://34.77.110.165:5000",
   "pre-commit": [
     "format",
     "js:check"
@@ -55,6 +56,8 @@
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
     "@types/react-router-dom": "^5.1.8",
+    "@types/react-redux": "^7.1.18",
+    "@types/redux-logger": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "antd": "^4.16.13",
@@ -93,12 +96,17 @@
     "webpack-notifier": "^1.13.0"
   },
   "dependencies": {
-    "@types/react-responsive": "^8.0.3",
+    "axios": "^0.21.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
     "react-router-dom": "^5.2.0",
     "react-svg": "^14.0.6",
-    "sass": "^1.36.0"
+    "redux": "^4.1.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.36.0",
+    "socket.io-client": "^4.2.0"
   }
 }

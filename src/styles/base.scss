@@ -13,14 +13,24 @@ html {
   box-sizing: inherit;
 }
 
-// html,
-// body,
-// #root {
-//   height: 100%;
-// }
+body {
+  font-family: 'Ruda', sans-serif;
+  font-weight: 400;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
 
 body {
   overflow-x: hidden;
+  margin: 0;
+}
+
+h1 h2 h3 h4 h5 h6 p {
+  padding: 0;
   margin: 0;
 }
 
