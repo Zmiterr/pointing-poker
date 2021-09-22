@@ -1,8 +1,9 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { FC, useState } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, Space, Upload } from 'antd';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
 import AvatarUploader from './AvatarUpload';
@@ -15,8 +16,18 @@ export interface IOverlayProps {
 
 // eslint-disable-next-line react/prop-types
 const Overlay: FC = () => {
+  const dispatch = useDispatch();
   const [isOpened, setIsOpened] = useState<boolean>(true);
-  const [isLoading, setLoading] = useState(false);
+  const scrumValue = useSelector<RootState, boolean>((state) => state.reducer.scrumValue);
+  const firstNameValue = useSelector<RootState, string>((state) => state.reducer.firstNameValue);
+  const lastNameValue = useSelector<RootState, string | null>(
+    (state) => state.reducer.lastNameValue,
+  );
+  const jobPositionValue = useSelector<RootState, string>(
+    (state) => state.reducer.jobPositionValue,
+  );
+  const imageValue = useSelector<RootState, string>((state) => state.reducer.imageValue);
+  const urlValue = useSelector<RootState, string>((state) => state.reducer.urlValue);
   const onFinish = (values: any) => {
     // eslint-disable-next-line no-console
     console.log('Success:', values);
@@ -68,7 +79,15 @@ const Overlay: FC = () => {
             <Input className="modal-input" />
           </Form.Item>
           <Form.Item id="mainApp">
-            <AvatarUploader />
+            <Space direction="vertical" style={{ width: '100%' }} size="large">
+              <Upload
+                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                listType="picture"
+                maxCount={1}
+              >
+                <Button className="ant-avatar-btn">Choose an avatar</Button>
+              </Upload>
+            </Space>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit" disabled={isLoading}>
