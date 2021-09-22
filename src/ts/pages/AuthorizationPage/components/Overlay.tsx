@@ -1,10 +1,10 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Form, Input, Button, Checkbox, Space, Upload } from 'antd';
 // import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'ts/store/rootReducer';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { RootState } from 'ts/store/rootReducer';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
 // import AvatarUploader from './AvatarUpload';
