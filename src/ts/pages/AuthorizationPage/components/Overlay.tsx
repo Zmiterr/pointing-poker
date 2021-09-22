@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { FC, useState } from 'react';
 import { Form, Input, Button, Checkbox, Space, Upload } from 'antd';
-import axios from 'axios';
+// import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'ts/store/rootReducer';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
-import AvatarUploader from './AvatarUpload';
+// import AvatarUploader from './AvatarUpload';
 import '../styles/modalPopUp.scss';
 
 export interface IOverlayProps {
@@ -16,18 +17,18 @@ export interface IOverlayProps {
 
 // eslint-disable-next-line react/prop-types
 const Overlay: FC = () => {
-  const dispatch = useDispatch();
-  const [isOpened, setIsOpened] = useState<boolean>(true);
-  const scrumValue = useSelector<RootState, boolean>((state) => state.reducer.scrumValue);
-  const firstNameValue = useSelector<RootState, string>((state) => state.reducer.firstNameValue);
-  const lastNameValue = useSelector<RootState, string | null>(
-    (state) => state.reducer.lastNameValue,
-  );
-  const jobPositionValue = useSelector<RootState, string>(
-    (state) => state.reducer.jobPositionValue,
-  );
-  const imageValue = useSelector<RootState, string>((state) => state.reducer.imageValue);
-  const urlValue = useSelector<RootState, string>((state) => state.reducer.urlValue);
+  // const dispatch = useDispatch();
+  // const [isOpened, setIsOpened] = useState<boolean>(true);
+  // const scrumValue = useSelector<RootState, boolean>((state) => state.reducer.scrumValue);
+  // const firstNameValue = useSelector<RootState, string>((state) => state.reducer.firstNameValue);
+  // const lastNameValue = useSelector<RootState, string | null>(
+  //   (state) => state.reducer.lastNameValue,
+  // );
+  // const jobPositionValue = useSelector<RootState, string>(
+  //   (state) => state.reducer.jobPositionValue,
+  // );
+  // const imageValue = useSelector<RootState, string>((state) => state.reducer.imageValue);
+  // const urlValue = useSelector<RootState, string>((state) => state.reducer.urlValue);
   const onFinish = (values: any) => {
     // eslint-disable-next-line no-console
     console.log('Success:', values);
