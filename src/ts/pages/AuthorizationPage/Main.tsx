@@ -6,6 +6,7 @@ import RWDModal from './components/RWDModal';
 import '../../../styles/index.scss';
 import gameLogo from '../../../assets/icons/logo.jpg';
 import Overlay from './components/Overlay';
+import { authUser } from './components/Modal';
 
 const Main: FC = () => {
   const [authorizationModal, setAuthorizationModal] = useState(false);
@@ -55,7 +56,7 @@ const Main: FC = () => {
           </Form.Item>
         </Form>
         <RWDModal
-          content={<Overlay />}
+          content={<Overlay authorizationSet={authUser} />}
           isAuthorizationModalVisible={authorizationModal}
           onBackDropClick={toogleAuthorizationModal}
         />

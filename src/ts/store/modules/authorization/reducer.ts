@@ -1,19 +1,13 @@
-import { string } from 'prop-types';
 import { AuthorizationActionsTypes, AuthorizationActions } from './actionTypes';
 
 const initialState: any = {
-  roomId: '',
-  firstName: '',
-  lastName: '',
-  jobPosition: '',
-  image: '',
-  isObserver: false,
+  authorizationSet: []
 };
 
 const authorizationReducer = (state = initialState, action: AuthorizationActions): any => {
   switch (action.type) {
     case AuthorizationActionsTypes.JOIN:
-      return { ...state, roomId: string || '', firstName: string, lastName: string || '', jobPosition: string || '', image: string || '', isObserver: false || true};
+      return { ...state, authorizationSet: action.payload};
     default:
       return state;
   }

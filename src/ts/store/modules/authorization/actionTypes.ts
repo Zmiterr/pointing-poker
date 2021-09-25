@@ -1,7 +1,7 @@
 import { Action } from 'redux';
 
 export enum AuthorizationActionsTypes {
-  JOIN = 'issues/JOIN',
+  JOIN = 'authorization/JOIN',
 }
 
 export interface GetAuthorizedActionInterface extends Action<AuthorizationActionsTypes> {

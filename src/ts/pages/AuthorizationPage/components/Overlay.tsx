@@ -1,26 +1,44 @@
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Form, Input, Button, Checkbox, Space, Upload } from 'antd';
-// import axios from 'axios';
+import axios from 'axios';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { RootState } from 'ts/store/rootReducer';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { authorizationSuceed } from '../../../store/modules/authorization/actionCreators';
 import CloseBtn from './CloseBtn';
 // eslint-disable-next-line import/no-named-as-default
 // import AvatarUploader from './AvatarUpload';
 import '../styles/modalPopUp.scss';
 
-export interface IOverlayProps {
-  isOpened: boolean;
-  updateModal: () => void;
+export interface IAuthorization {
+  roomId: string;
+  firstName: string;
+  lastName: string;
+  jobPosition: string;
+  image?: string;
+  isObserver: boolean;
 }
 
+export interface IAuthorizationPageProps {
+  authorizationSet: any;
+}
+
+const asdas = {
+  roomId: '',
+  firstName: 'dd',
+};
+
 // eslint-disable-next-line react/prop-types
-const Overlay: FC = () => {
+const Overlay: FC<IAuthorizationPageProps> = (props: IAuthorizationPageProps) => {
+  const { authorizationSet } = props;
   // const dispatch = useDispatch();
-  // const [isOpened, setIsOpened] = useState<boolean>(true);
+  const [isOpened, setIsOpened] = useState<boolean>(true);
   // const scrumValue = useSelector<RootState, boolean>((state) => state.reducer.scrumValue);
-  // const firstNameValue = useSelector<RootState, string>((state) => state.reducer.firstNameValue);
+  // const firstNameValue = useSelector<RootState, string>(
+  //   (state) => state.authorizationReducer.firstNameValue,
+  // );
   // const lastNameValue = useSelector<RootState, string | null>(
   //   (state) => state.reducer.lastNameValue,
   // );
@@ -29,24 +47,20 @@ const Overlay: FC = () => {
   // );
   // const imageValue = useSelector<RootState, string>((state) => state.reducer.imageValue);
   // const urlValue = useSelector<RootState, string>((state) => state.reducer.urlValue);
-  const onFinish = (values: any) => {
-    // eslint-disable-next-line no-console
-    console.log('Success:', values);
-  };
+  // const onFinish = (values: any) => {
+  //   // eslint-disable-next-line no-console
+  //   console.log('Success:', values);
+  // };
 
   const onFinishFailed = (errorInfo: any) => {
     // eslint-disable-next-line no-console
     console.log('Failed:', errorInfo);
   };
-  // const onEnter = async () => {
-  //   await axios.post('/rooms', {
-  //     roomId,
-  //     name,
-  //     jobPosition,
-  //     image,
-  //     isObserver,
-  //   });
-  // };
+
+  const onEnter = async () => {
+    await axios.post('/rooms', authorizationSet);
+  };
+
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
   const wrapper = (
     <div className="authorization-modal-wrapper">
@@ -60,7 +74,7 @@ const Overlay: FC = () => {
           autoComplete="off"
           className="modal-styles"
           onClick={(e) => e.stopPropagation()}
-          onFinish={onFinish}
+          onFinish={onEnter}
           onFinishFailed={onFinishFailed}
         >
           <Checkbox>Start as a Scrum Master</Checkbox>{' '}
@@ -71,7 +85,7 @@ const Overlay: FC = () => {
             // value={firstName}
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input className="modal-input" />
+            <Input className="modal-input" value={asdas.firstName} />
           </Form.Item>
           <Form.Item label="Surname" name="surname">
             <Input className="modal-input" value="lastName" />
@@ -91,7 +105,7 @@ const Overlay: FC = () => {
             </Space>
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit" disabled={isLoading}>
+            <Button type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
