@@ -1,17 +1,13 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Input } from 'antd';
 
-import type { IMember } from '../../interfaces/IMember';
 import type { IIssue } from '../../interfaces/IIssue';
 
 import Title from './components/Title';
-import MemberCard from './components/MemberCard';
 import IssueCard from './components/IssueCard';
-import Settings from './components/Settings';
-import { AddCard, Card, CoffeBreakCard } from './components/Card';
+import { Card, CoffeBreakCard } from './components/Card';
 import { getIssues, removeIssue } from '../../store/modules/issues/actionCreators';
 
 import 'antd/dist/antd.css';
@@ -24,9 +20,6 @@ interface IResultPageProps {
 
 const ResultPage: React.FC<IResultPageProps> = (props: IResultPageProps): JSX.Element => {
   const { title, issues } = props;
-  const { Search } = Input;
-
-  const [selectedCards, setSelectedCards] = useState<any[]>([]);
 
   return (
     <section className="lobby">
