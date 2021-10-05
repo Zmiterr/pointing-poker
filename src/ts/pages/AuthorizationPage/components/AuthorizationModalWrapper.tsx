@@ -14,7 +14,11 @@ const AuthorizationModalWrapper: FC<IAuthorizationWrapperProps> = ({
   isAuthorizationModalVisible,
 }) => {
   if (!isAuthorizationModalVisible) return null;
-  return <AuthorizationModal onBackDropClick={onBackDropClick} />;
+  return (
+    <>
+      <AuthorizationModal onBackDropClick={onBackDropClick} />
+    </>
+  );
 };
 
 export default AuthorizationModalWrapper;

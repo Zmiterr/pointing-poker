@@ -4,7 +4,7 @@ import issuesReducer from './modules/issues/reducer';
 
 const rootReducer = combineReducers({
   issuesReducer,
-  reducer: authorizationReducer,
+  authorizationReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

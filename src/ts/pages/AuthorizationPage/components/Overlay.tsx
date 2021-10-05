@@ -12,6 +12,8 @@ import CloseBtn from './CloseBtn';
 // import AvatarUploader from './AvatarUpload';
 import '../styles/modalPopUp.scss';
 
+axios.defaults.baseURL = 'http://34.77.110.165/:5000/';
+
 export interface IAuthorization {
   roomId: string;
   firstName: string;
@@ -25,14 +27,8 @@ export interface IAuthorizationPageProps {
   authorizationSet: any;
 }
 
-const asdas = {
-  roomId: '',
-  firstName: 'dd',
-};
-
 // eslint-disable-next-line react/prop-types
-const Overlay: FC<IAuthorizationPageProps> = (props: IAuthorizationPageProps) => {
-  const { authorizationSet } = props;
+const Overlay: FC = () => {
   // const dispatch = useDispatch();
   const [isOpened, setIsOpened] = useState<boolean>(true);
   // const scrumValue = useSelector<RootState, boolean>((state) => state.reducer.scrumValue);
@@ -57,8 +53,12 @@ const Overlay: FC<IAuthorizationPageProps> = (props: IAuthorizationPageProps) =>
     console.log('Failed:', errorInfo);
   };
 
-  const onEnter = async () => {
-    await axios.post('/rooms', authorizationSet);
+  const onEnter = async (values: any) => {
+    const { firstName, lastName } = values;
+    await axios.post('/rooms', {
+      roomId: '',
+      name: `${firstName}${lastName ? ` ${lastName}` : ''}`,
+    });
   };
 
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -81,16 +81,16 @@ const Overlay: FC<IAuthorizationPageProps> = (props: IAuthorizationPageProps) =>
           {/* в чекбокс нужно будет добавить onChange={onChange} */}
           <Form.Item
             label="Firstname"
-            name="firstname"
+            name="firstName"
             // value={firstName}
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
-            <Input className="modal-input" value={asdas.firstName} />
+            <Input className="modal-input" />
           </Form.Item>
-          <Form.Item label="Surname" name="surname">
+          <Form.Item label="Surname" name="lastName">
             <Input className="modal-input" value="lastName" />
           </Form.Item>
-          <Form.Item label="Job position" name="job position">
+          <Form.Item label="Job position" name="jobPosition">
             <Input className="modal-input" />
           </Form.Item>
           <Form.Item id="mainApp">

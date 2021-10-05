@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom';
-import Overlay from './Overlay';
 import '../styles/modalPopUp.scss';
+import RoomIdForm from './RoomIdForm';
 
-interface IAuthorizationModalProp {
-  onBackDropClick: () => void;
+interface IRoomIdModalProp {
+  onRoomIdClick: () => void;
 }
 
 export const authUser = {
@@ -17,15 +17,15 @@ export const authUser = {
   isObserver: false,
 };
 
-const AuthorizationModal: FC<IAuthorizationModalProp> = ({ children }) => {
+const RoomIdAuthModal: FC<IRoomIdModalProp> = ({ children }) => {
   return ReactDOM.createPortal(
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <>
-      <Overlay>{children}</Overlay>
+      <RoomIdForm>{children}</RoomIdForm>
     </>,
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById('modal-root')!,
   );
 };
 
-export default AuthorizationModal;
+export default RoomIdAuthModal;

@@ -1,30 +1,24 @@
-/* eslint-disable react/jsx-max-props-per-line */
 import React, { FC, useState } from 'react';
 import { Space, Button, Form, Input } from 'antd';
 import { BrowserRouter } from 'react-router-dom';
 import RWDModal from './components/RWDModal';
+import IDModal from './components/IDModal';
 import '../../../styles/index.scss';
 import gameLogo from '../../../assets/icons/logo.jpg';
 import Overlay from './components/Overlay';
-import { authUser } from './components/Modal';
+import RoomIdForm from './components/RoomIdForm';
 
 const Main: FC = () => {
-  const [authorizationModal, setAuthorizationModal] = useState(false);
-  const [form] = Form.useForm();
+  const [authorizationModal, setAuthorizationModal] = useState<boolean>(false);
+  const [isFormIdOpened, setIsFormIdOpened] = useState<boolean>(false);
 
   const toogleAuthorizationModal = () => {
     setAuthorizationModal((authorizatonModalVisible) => !authorizatonModalVisible);
   };
 
-  // const onFinish = () => {
-  //   // eslint-disable-next-line no-alert
-  //   alert('Submit success!');
-  // };
-
-  // const onFinishFailed = () => {
-  //   // eslint-disable-next-line no-alert
-  //   alert('Submit failed!');
-  // };
+  const toogleFormIdModal = () => {
+    setIsFormIdOpened((RoomIdVisible) => !RoomIdVisible);
+  };
 
   return (
     <BrowserRouter>
@@ -41,24 +35,27 @@ const Main: FC = () => {
             <span>Connect to lobby by URL:</span>
           </div>
         </div>
-        <Form form={form} layout="vertical" autoComplete="off" onClick={toogleAuthorizationModal}>
-          <div style={{ overflow: 'hidden' }}>
-            <Form.Item name="url" rules={[{ required: true }, { type: 'string', min: 6 }]}>
-              <Input />
-            </Form.Item>
-          </div>
-          <Form.Item>
-            <Space>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Space>
+        <div style={{ overflow: 'hidden' }}>
+          <Form.Item name="url" rules={[{ required: true }, { type: 'string', min: 6 }]}>
+            <Input />
           </Form.Item>
-        </Form>
+        </div>
+        <Form.Item>
+          <Space>
+            <Button type="primary" htmlType="button" onClick={toogleFormIdModal}>
+              Submit
+            </Button>
+          </Space>
+        </Form.Item>
         <RWDModal
-          content={<Overlay authorizationSet={authUser} />}
+          content={<Overlay />}
           isAuthorizationModalVisible={authorizationModal}
           onBackDropClick={toogleAuthorizationModal}
+        />
+        <IDModal
+          content={<RoomIdForm />}
+          isRoomIdVisible={isFormIdOpened}
+          onRoomIdClick={toogleFormIdModal}
         />
       </div>
     </BrowserRouter>

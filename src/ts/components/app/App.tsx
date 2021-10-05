@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { ReactSVG } from 'react-svg';
+import Results from '../../pages/Results/Results';
 import Main from '../../pages/AuthorizationPage/Main';
 
 import PagewWrapper from '../../pages/PageWrapper';
@@ -40,6 +41,7 @@ const App: React.FC = (): JSX.Element => {
       <PagewWrapper>
         <LobbyPage currentUser={user} title={title} members={members} />
       </PagewWrapper>
+      <Results title={title} />
       <div className="app__footer" />
     </div>
   );
