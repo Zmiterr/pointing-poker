@@ -115,7 +115,7 @@ const LobbyPage: React.FC<ILobbyPageProps> = (props: ILobbyPageProps): JSX.Eleme
   );
 };
 
-const mapStateToProps = (state: any) => ({ issues: state.issues });
+const mapStateToProps = (state: any) => ({ issues: state.issuesReducer.issues });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   getAllIssues: getIssues(dispatch),

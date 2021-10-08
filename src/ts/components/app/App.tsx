@@ -37,11 +37,25 @@ const App: React.FC = (): JSX.Element => {
         <div className="app__header-bottom" />
         <ReactSVG className="app__header-logo" src={(LogoIcon || '').replace(/^\.\//, '/')} />
       </div>
+      <div className="please">
+        <p>Привет. В условиях неполной команды работа пошла неочень</p>
+        <p>Поэтому просьба пока не проверять работу, может к дедлайну доделаем хоть что-то</p>
+        <p>
+          Сейчас на фронте из интерактивного только открывающееся окно с модалкой и добавление карт
+        </p>
+        <p>
+          Серверная часть готова и поддерживает несколько пользователей, но как её бех фронта
+          проверить?
+        </p>
+        <p>Надеюсь на понимание, заранее спасибо))</p>
+        <p>С уважением, Дима Р. (Мой дискорд, на всякий случай: Zmiter#0480)</p>
+      </div>
       <Main />
       <PagewWrapper>
         <LobbyPage currentUser={user} title={title} members={members} />
+        <Results title={title} />
       </PagewWrapper>
-      <Results title={title} />
+
       <div className="app__footer" />
     </div>
   );

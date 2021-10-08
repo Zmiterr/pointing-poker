@@ -26,12 +26,12 @@ const ResultPage: React.FC<IResultPageProps> = (props: IResultPageProps): JSX.El
       <Title title={title} editable />
 
       <div className="lobby__section">
-        <Title title="Issues:" />
+        <Title title="Results:" />
         <div className="lobby__section-wrapper issue-cards">
           {issues?.map((issue: IIssue) => (
             <IssueCard key={issue?.name} issue={issue} />
           ))}
-          <IssueCard title="Create new Issue" />
+          <IssueCard title="Issue 1" />
         </div>
       </div>
 
