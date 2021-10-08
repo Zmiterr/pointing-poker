@@ -1,0 +1,35 @@
+.lobby {
+  &__issue-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    height: 75px;
+    max-height: 75px;
+    padding: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &-issue {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+    }
+
+    &-priority {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 10px;
+    }
+
+    &-icons-wrapper {
+      display: flex;
+    }
+
+    &-icon {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+}

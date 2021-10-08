@@ -1,0 +1,37 @@
+.lobby {
+  &__member-card {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 75px;
+    max-height: 75px;
+    padding: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &-avatar-wrapper {
+      margin-right: 20px;
+    }
+
+    &-name-owner {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    &-name {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+    }
+
+    &-position {
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 10px;
+    }
+  }
+}
